@@ -1,0 +1,17 @@
+<div class = "a__blog">
+  <div class = "a__blog__text">
+    <%= simple_format(blog.text) %>
+  </div>
+  <% if user_signed_in? && current_user.id == blog.user_id %>
+  <div class = "a__blog__action">
+    <ul class = "a__blog__action__wrapper">
+      <li class = "a__blog__action__list">
+        <%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get %>
+      </li>
+      <li class = "a__blog__action__list">
+        <%= link_to '削除', "/blogs/#{blog.id}", method: :delete %>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+</div>
